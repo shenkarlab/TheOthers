@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+
+</style>
+<body>
+	<h1>ShenkarLab</h1>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+
+<script>
+
+var centerPos=100;
+   
+var sqr1 = '{"sum":30,"color":"green"}';
+var sqr2 = '{"sum":40,"color":"blue"}';
+var sqr3 = '{"sum":80,"color":"red"}';
+var sqr4 = '{"sum":50,"color":"purple"}';
+
+
+ 
+ 	var svgContainer = d3.select("body").append("svg")
+                                     .attr("width", 200)
+                                     .attr("height", 200);
+ 
+	
+	var obj = JSON.parse(sqr1);
+	
+	var circleAttributes = svgContainer.append("rect")
+                       .attr("x", centerPos )
+                       .attr("y", centerPos )
+                       .attr("width", obj.sum)
+                       .attr("height", obj.sum )
+                       .style("fill", obj.color);
+                       
+    var obj = JSON.parse(sqr2);
+	
+	var circleAttributes = svgContainer.append("rect")
+                       .attr("x", centerPos )
+                       .attr("y", centerPos - obj.sum )
+                       .attr("width", obj.sum)
+                       .attr("height", obj.sum )
+                       .style("fill", obj.color);
+                       
+    var obj = JSON.parse(sqr3);
+	
+	var circleAttributes = svgContainer.append("rect")
+                       .attr("x", centerPos - obj.sum)
+                       .attr("y", centerPos - obj.sum )
+                       .attr("width", obj.sum)
+                       .attr("height", obj.sum )
+                       .style("fill", obj.color);
+                       
+     var obj = JSON.parse(sqr4);
+	
+	 var circleAttributes = svgContainer.append("rect")
+                       .attr("x", centerPos - obj.sum)
+                       .attr("y", centerPos)
+                       .attr("width", obj.sum)
+                       .attr("height", obj.sum )
+                       .style("fill", obj.color);
+                       
+                       
+                       
+</script>
+
+<script src="includes/datamaps.world.min.js"></script>
+<div id="container" style="position: relative; width: 500px; height: 300px;"></div>
+<script>
+    var map = new Datamap({
+    	element: document.getElementById('container')
+    	
+    	});
+</script>
+
+
+
